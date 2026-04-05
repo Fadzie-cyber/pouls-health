@@ -1,0 +1,143 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// 1. Import the Image component for optimization
+import { Image } from 'astro:assets';
+
+// 2. Import your specific logos from src/assets/logos/
+import MastercardLogo from '../assets/mcf.webp';
+import EduCollabLogo from '../assets/educollab.png';
+import AshesiEntrepLogo from '../assets/ashesi_entrepreneurship_center_logo.jpeg';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main { width: calc(100% - 2em); max-width: 900px; margin: 0 auto; padding: 3em 1em; }
+			h1 { color: #111827; font-size: 3.5rem; line-height: 1.1; margin-bottom: 0.5em; font-weight: 800; }
+			.hero-text { font-size: 1.25rem; color: #4b5563; line-height: 1.6; margin-bottom: 2rem; }
+			
+			section { margin-bottom: 5rem; }
+			
+			h2 { border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: #1f2937; font-size: 2rem; }
+			
+			.highlight-box { background: #f9fafb; border-left: 4px solid #1e3a8a; padding: 1.5rem; margin: 1.5rem 0; font-style: italic; color: #374151; }
+			
+			ul { list-style-type: none; padding: 0; }
+			li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; color: #4b5563; }
+			li::before { content: "→"; position: absolute; left: 0; color: #1e3a8a; font-weight: bold; }
+
+			/* References Section Styling */
+			.references-container {
+				background-color: #1a365d; /* Dark Navy Blue */
+				padding: 4rem 2rem;
+				margin: 4rem -2em; /* Bleeds out to edges */
+				text-align: center;
+				border-radius: 12px;
+			}
+
+			.references-container h2 {
+				color: white;
+				font-family: serif; 
+				font-size: 2.5rem;
+				margin-bottom: 3rem;
+				border: none;
+				text-align: center;
+			}
+
+			.reference-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 1.5rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.ref-card {
+				background: white;
+				height: 140px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 20px;
+				padding: 1.5rem;
+				box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+				transition: transform 0.2s ease;
+			}
+
+			.ref-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.ref-card img {
+				max-width: 90%;
+				max-height: 80%;
+				width: auto;
+				height: auto;
+				object-fit: contain;
+			}
+
+			@media (max-width: 720px) {
+				h1 { font-size: 2.5rem; }
+				.references-container { margin: 4rem 0; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<h1>Access Without Fear.</h1>
+				<p class="hero-text">
+					<strong>Pouls</strong> is a student-led health equity initiative dismantling medical stigma 
+					in Zimbabwe. We are bridging the gap between campus dorms and professional care through 
+					anonymity, technology, and empathy.
+				</p>
+			</section>
+
+			<section>
+				<h2>The UZ Tragedy: Why We Build</h2>
+				<p>
+					In 2024, a student at the University of Zimbabwe lost their life to a preventable condition. 
+					They didn't die from a lack of medicine, but because the <strong>social cost of 
+					seeking help</strong>—fear of judgment and administrative exposure—was too high.
+				</p>
+				<div class="highlight-box">
+					"We are building a digital sanctuary where 'access' is defined by privacy, not bureaucracy."
+				</div>
+			</section>
+
+			<section>
+				<h2>Technical Infrastructure</h2>
+				<p>Our dual-dashboard system leverages secure software architecture to protect student identities:</p>
+				<ul>
+					<li><strong>Anonymous Student Portal:</strong> Encrypted triage system that prioritizes user safety and data stripping.</li>
+					<li><strong>Practitioner Interface:</strong> A specialized diagnostic hub for verified responders to manage care without bias.</li>
+				</ul>
+			</section>
+
+			<section class="references-container">
+				<h2>References</h2>
+				<div class="reference-grid">
+					<div class="ref-card">
+						<Image src={MastercardLogo} alt="Mastercard Foundation Logo" />
+					</div>
+
+					<div class="ref-card">
+						<Image src={EduCollabLogo} alt="Ashesi Education Collaborative Logo" />
+					</div>
+
+					<div class="ref-card">
+						<Image src={AshesiEntrepLogo} alt="Ashesi Entrepreneurship Center Logo" />
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

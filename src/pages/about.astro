@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import FounderImage from '../assets/founder.jpeg';
+
+// Define the date clearly so Astro doesn't throw a "received object" error
+const publishDate = new Date('2025-03-05');
+---
+
+<Layout
+	title="About the Founder"
+	description="Leading the transition toward equitable campus healthcare in Zimbabwe."
+	pubDate={publishDate}
+	heroImage={FounderImage}
+>
+	<p>
+		Fadzai Zaranyika is a Computer Science student at Ashesi University, driven by the belief that 
+		technology should be healthcare's greatest equalizer. As the founder of 
+		<strong>Pouls</strong>, my work centers on using software engineering to solve 
+		deeply human problems.
+	</p>
+
+	<p>
+		Having witnessed the devastating impact of medical stigma firsthand within the Zimbabwean 
+		university system, I recognized that the "barrier to care" was psychological 
+		as much as it was physical. By designing systems that prioritize user anonymity 
+		and data security, we are creating a new standard for student welfare.
+	</p>
+
+	<h3>Core Competencies & Recognition</h3>
+	<ul>
+		<li><strong>System Architecture:</strong> Designing secure, end-to-end encrypted health dashboards for sensitive student data.</li>
+		<li><strong>iGEM Silver Medalist:</strong> Recognized for excellence in computational biology and project design on a global stage.</li>
+		<li><strong>Ashesi Health Grant:</strong> Awarded for innovative, student-led healthcare solutions in higher education.</li>
+		<li><strong>Melton Foundation Fellow:</strong> Collaborating with global innovators to solve UN Sustainable Development Goals.</li>
+	</ul>
+	
+</Layout>
